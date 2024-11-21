@@ -1,0 +1,174 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Marcador de Karate</title>
+</head>
+
+<body>
+    <div class="container mx-auto p-4">
+
+        <!-- Puntaje -->
+        <div class="grid grid-cols-3 gap-4">
+            <div class="bg-blue-600 text-white p-8 rounded-lg shadow-lg flex flex-col items-center">
+                <div class="text-2xl mb-4">Ao</div>
+                <div class="score text-center text-6xl font-bold mb-8" id="blueScore">0</div>
+
+                <div class="w-full max-w-xs">
+                    <div class="flex justify-between text-white text-sm md:text-2xl mb-2">
+                        <span>1C</span>
+                        <span>2C</span>
+                        <span>3C</span>
+                        <span>HC</span>
+                        <span>H</span>
+                    </div>
+                    <div class="bg-white rounded-xl p-2 flex justify-between">
+                        <input type="checkbox" class="accent-blue-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-blue-900" id="blueBox1C"
+                            onchange="updateState(this)">
+                        <input type="checkbox" class="accent-blue-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-blue-900" id="blueBox2C"
+                            onchange="updateState(this)">
+                        <input type="checkbox" class="accent-blue-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-blue-900" id="blueBox3C"
+                            onchange="updateState(this)">
+                        <input type="checkbox" class="accent-blue-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-blue-900" id="blueBoxHC"
+                            onchange="updateState(this)">
+                        <input type="checkbox" class="accent-blue-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-blue-900" id="blueBoxH"
+                            onchange="updateState(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center ">
+                <div class="flex flex-col gap-2">
+                    <div class="timer inline-block mb-4 text-3xl bg-slate-400 p-2 rounded-md" id="timer">0</div>
+                    <div class="">
+                        <button id="add10Seconds" class="bg-green-500 text-white p-1 rounded-lg hover:bg-green-700">
+                            +10seg
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <div>
+                        <div class="flex gap-2 flex-col items-center">
+                            <label for="timerInputMinutes">Minutos:</label>
+                            <input class="bg-slate-200 p-2 rounded-lg" type="number" id="timerInputMinutes" min="0" value="2" onchange="setCustomTime()">
+                        </div>
+                        <div class="flex gap-2 flex-col items-center">
+                            <label for="timerInputSeconds">Segundos:</label>
+                            <input class="bg-slate-200 p-2 rounded-lg" type="number" id="timerInputSeconds" min="0" max="59" value="30" onchange="setCustomTime()">
+                        </div>
+                        
+                    </div>
+                    
+                    <button class="bg-green-600 text-white p-2 rounded-lg my-9" id="timerButton" onclick="toggleTimer()">Iniciar/Detener</button>
+                    <button class="bg-yellow-400 text-white p-2 rounded-lg" onclick="resetTimer()">Resetear tiempo</button>
+                </div>
+            </div>
+
+            <div class="bg-red-600 text-white p-8 rounded-lg shadow-lg flex flex-col items-center">
+                <div class="text-2xl mb-4">Aka</div>
+                <div class="score text-center text-6xl font-bold mb-8" id="redScore">0</div>
+
+                <div class="w-full max-w-xs">
+                    <div class="flex justify-between text-white text-sm md:text-2xl mb-2">
+                        <span>1C</span>
+                        <span>2C</span>
+                        <span>3C</span>
+                        <span>HC</span>
+                        <span>H</span>
+                    </div>
+                    <div class="bg-white rounded-xl p-2 flex justify-between">
+                        <input type="checkbox" class="accent-red-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-red-900" id="redBox1C"
+                            onchange="updateState(this)"></input>
+                        <input type="checkbox" class="accent-red-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-red-900" id="redBox2C"
+                            onchange="updateState(this)"></input>
+                        <input type="checkbox" class="accent-red-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-red-900" id="redBox3C"
+                            onchange="updateState(this)"></input>
+                        <input type="checkbox" class="accent-red-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-red-900" id="redBoxHC"
+                            onchange="updateState(this)"></input>
+                        <input type="checkbox" class="accent-red-600 w-4 h-4 md:w-6 md:h-6 rounded-full bg-red-900" id="redBoxH"
+                            onchange="updateState(this)"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="grid grid-cols-2  justify-between gap-4 mt-8">
+            <div>
+                <button onclick="addPoint('blue', 1)" class="bg-blue-800 text-white p-5 rounded-lg">+1</button>
+                <button onclick="addPoint('blue', 2)" class="bg-blue-800 text-white p-5 rounded-lg">+2</button>
+                <button onclick="addPoint('blue', 3)" class="bg-blue-800 text-white p-5 rounded-lg">+3</button>
+                <button onclick="subtractPoint('blue')" class="bg-blue-800 text-white p-5 rounded-lg ml-10">-1</button>
+            </div>
+            <div class="text-right">
+                <button onclick="subtractPoint('red')" class="bg-red-800 text-white p-5 rounded-lg mr-10">-1</button>
+                <button onclick="addPoint('red', 1)" class="bg-red-800 text-white p-5 rounded-lg">+1</button>
+                <button onclick="addPoint('red', 2)" class="bg-red-800 text-white p-5 rounded-lg">+2</button>
+                <button onclick="addPoint('red', 3)" class="bg-red-800 text-white p-5 rounded-lg">+3</button>
+            </div>
+            
+        </div>
+
+        <div class="grid grid-cols-2 justify-between gap-4 mt-5">
+            <!-- Senshu Blue -->
+            <div class="flex items-center gap-2">
+                <label for="senshuBlue" class="flex items-center gap-2 cursor-pointer">
+                    <span class="bg-blue-600 text-white px-4 py-2 rounded-lg">Senshu Ao</span>
+                    <input 
+                        type="checkbox" 
+                        id="senshuBlue" 
+                        class="w-5 h-5 accent-blue-600 rounded-lg border-gray-300 focus:ring-blue-500 focus:ring-2">
+                </label>
+            </div>
+        
+            <!-- Senshu Red -->
+            <div class="flex items-center gap-2 justify-end">
+                <label for="senshuRed" class="flex items-center gap-2 cursor-pointer">
+                    <input 
+                        type="checkbox" 
+                        id="senshuRed" 
+                        class="w-5 h-5 accent-red-600 rounded-lg border-gray-300 focus:ring-red-500 focus:ring-2">
+                    <span class="bg-red-600 text-white px-4 py-2 rounded-lg">Senshu Aka</span>
+                </label>
+            </div>
+        </div>
+        
+
+        <div class="flex  justify-center flex-wrap mt-14">
+            <audio id="warningSound" src="warning.mp3"></audio> 
+
+            <button onclick="resetScoreboard()" class="bg-red-600 text-white p-4 rounded-lg">Reiniciar pelea</button>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script>
+        // Guardamos el estado del checkbox en localStorage cuando cambia
+        document.getElementById('senshuBlue').addEventListener('change', function() {
+            localStorage.setItem('senshuBlueState', this.checked);
+        });
+    
+        document.getElementById('senshuRed').addEventListener('change', function() {
+            localStorage.setItem('senshuRedState', this.checked);
+        });
+    
+        // Cargar el estado del checkbox al cargar la página
+        window.onload = function() {
+            const senshuBlueState = localStorage.getItem('senshuBlueState') === 'true';
+            const senshuRedState = localStorage.getItem('senshuRedState') === 'true';
+    
+            document.getElementById('senshuBlue').checked = senshuBlueState;
+            document.getElementById('senshuRed').checked = senshuRedState;
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martial Arts Scoreboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'Digital';
+            src: url('https://fonts.cdnfonts.com/css/ds-digital') format('woff2');
+        }
+
+        .digital {
+            font-family: 'Digital', monospace;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-7xl flex flex-col md:flex-row gap-8">
+        <!-- Aka (Red) Column -->
+        <div class="flex-1 flex flex-col items-center">
+            <div class="flex items-center ">
+                <div>
+                    <h2 class="text-white text-4xl md:text-6xl font-bold ">Aka</h2>
+                </div>
+                <div class="bg-black border-2 border-white rounded-xl px-4 text-white text-xl md:text-2xl hidden" id="divSenshuRed"  >
+                    Senshu
+                </div>  
+            </div>
+            <div class="text-red-500 digital text-[160px] md:text-[250px] leading-none" id="redScore">02</div>
+            <div class="w-full max-w-xs">
+                <div class="flex justify-between text-white text-sm md:text-3xl mb-2">
+                    <span>1C</span>
+                    <span>2C</span>
+                    <span>3C</span>
+                    <span>HC</span>
+                    <span>H</span>
+                </div>
+                <div class="bg-red-600 rounded-xl p-3 flex justify-between">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-red-900" id="red1C"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-red-900" id="red2C"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-red-900" id="red3C"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-red-900" id="redHC"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-red-900" id="redH"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Center Column -->
+        <div class="flex-1 flex flex-col items-center justify-between">
+
+            <div class="bg-black border-2 border-white rounded-xl p-4 mb-4">
+                <div class="text-white text-xl md:text-2xl mb-2">Tatami</div>
+                <div class="text-yellow-300 text-4xl md:text-5xl text-center">1</div>
+            </div>
+            <div class="bg-black border-2 border-white rounded-xl p-6 mb-4">
+                <div class="text-yellow-300 digital text-6xl md:text-7xl" id="timer">1:19</div>
+            </div>
+            <div class="text-white text-2xl md:text-4xl font-bold">Penalty</div>
+        </div>
+
+        <!-- Ao (Blue) Column -->
+        <div class="flex-1 flex flex-col items-center">
+            <div class="flex items-center ">
+                <div>
+                    <h2 class="text-white text-4xl md:text-6xl font-bold ">Ao</h2>
+                </div>
+                <div class="bg-black border-2 border-white rounded-xl px-4 text-white text-xl md:text-2xl hidden" id="divSenshuBlue" >
+                    Senshu
+                </div>
+            </div>
+            <div class="text-blue-500 digital text-[160px] md:text-[250px] leading-none" id="blueScore">02</div>
+            <div class="w-full max-w-xs">
+                <div class="flex justify-between text-white text-sm md:text-3xl mb-2">
+                    <span>1C</span>
+                    <span>2C</span>
+                    <span>3C</span>
+                    <span>HC</span>
+                    <span>H</span>
+                </div>
+                <div class="bg-blue-600 rounded-xl p-3 flex justify-between">
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-900" id="blue1C"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-900" id="blue2C"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-900" id="blue3C"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-900" id="blueHC"></div>
+                    <div class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-900" id="blueH"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

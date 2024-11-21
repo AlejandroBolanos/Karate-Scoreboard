@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Senshu</title>
+</head>
+<body>
+    <div>
+        <label>
+            <input type="checkbox" id="senshuBlue" onchange="toggleSenshu('senshuBlue', 'divSenshuBlue')">
+            Senshu Blue
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" id="senshuRed" onchange="toggleSenshu('senshuRed', 'divSenshuRed')">
+            Senshu Red
+        </label>
+    </div>
+
+    <div id="divSenshuBlue" hidden>Div Senshu Blue</div>
+    <div id="divSenshuRed" hidden>Div Senshu Red</div>
+
+    <script>
+        function toggleSenshu(checkboxId, divId) {
+            const checkbox = document.getElementById(checkboxId);
+            const div = document.getElementById(divId);
+
+            if (checkbox && div) {
+                div.hidden = !checkbox.checked; // Cambia el atributo hidden según el estado del checkbox
+            }
+        }
+    </script>
+</body>
+</html>
