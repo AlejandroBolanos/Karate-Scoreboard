@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <title>Marcador de Karate</title>
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/ds-digital');
+    
+        .digital {
+            font-family: 'DS-Digital', sans-serif;
+            font-size: 6rem; /* Tamaño grande para resaltar los números */
+            color: #ff0000; /* Cambia al color que desees */
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +30,7 @@
                 <div class="score text-center text-6xl font-bold mb-8" id="blueScore">0</div>
 
                 <div class="w-full max-w-xs">
-                    <div class="flex justify-between text-white text-sm md:text-2xl mb-2">
+                    <div class="flex justify-between text-white text-sm md:text-3xl mb-2">
                         <span>1C</span>
                         <span>2C</span>
                         <span>3C</span>
@@ -63,7 +74,7 @@
                         
                     </div>
                     
-                    <button class="bg-green-600 text-white p-2 rounded-lg my-9" id="timerButton" onclick="toggleTimer()">Iniciar/Detener</button>
+                    <button class="bg-green-600 text-white p-2 rounded-lg my-9" id="timerButton" onclick="toggleTimer()">Iniciar</button>
                     <button class="bg-yellow-400 text-white p-2 rounded-lg" onclick="resetTimer()">Resetear tiempo</button>
                 </div>
             </div>
@@ -113,7 +124,7 @@
             
         </div>
 
-        <div class="grid grid-cols-2 justify-between gap-4 mt-5">
+        <div class="grid grid-cols-3 justify-between gap-4 mt-5 w-full">
             <!-- Senshu Blue -->
             <div class="flex items-center gap-2">
                 <label for="senshuBlue" class="flex items-center gap-2 cursor-pointer">
@@ -123,6 +134,12 @@
                         id="senshuBlue" 
                         class="w-5 h-5 accent-blue-600 rounded-lg border-gray-300 focus:ring-blue-500 focus:ring-2">
                 </label>
+            </div>
+
+            <div class="flex justify-center flex-wrap  ">
+                <a href="puntaje.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                    Ver puntajes
+                </a>
             </div>
         
             <!-- Senshu Red -->
@@ -137,14 +154,10 @@
             </div>
         </div>
 
-        <div class="flex justify-center flex-wrap ">
-            <a href="puntaje.html" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
-                Ver puntajes
-            </a>
-        </div>
+       
             
 
-        <div class="flex justify-center flex-wrap mt-2">
+        <div class="flex justify-center flex-wrap mt-10">
            
             
             <audio id="warningSound" src="warning.mp3"></audio> 

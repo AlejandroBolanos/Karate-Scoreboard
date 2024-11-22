@@ -40,7 +40,7 @@ function updateTimerDisplay() {
         timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
         // Cambiar el color del temporizador cuando queden 10 segundos o menos
-        if (timerValue <= 10) {
+        if (timerValue <= 15) {
             timerElement.style.color = 'red';
         } else {
             timerElement.style.color = 'yellow';
@@ -95,7 +95,7 @@ function toggleTimer() {
                 updateTimerDisplay();
 
                 // Reproducir el sonido cuando queden exactamente 10 segundos
-                if (timerValue === 10 && warningSound) {
+                if (timerValue === 15 && warningSound) {
                     warningSound.play();
                 }
 

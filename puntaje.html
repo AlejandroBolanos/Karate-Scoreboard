@@ -7,13 +7,13 @@
     <title>Martial Arts Scoreboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @font-face {
-            font-family: 'Digital';
-            src: url('https://fonts.cdnfonts.com/css/ds-digital') format('woff2');
-        }
-
+        @import url('https://fonts.cdnfonts.com/css/ds-digital');
+    
         .digital {
-            font-family: 'Digital', monospace;
+            font-family: 'DS-Digital', sans-serif;
+            font-size: 6rem; /* Tamaño grande para resaltar los números */
+            color: #ff0000; /* Cambia al color que desees */
+            text-align: center;
         }
     </style>
 </head>
@@ -26,13 +26,13 @@
                 <div>
                     <h2 class="text-white text-4xl md:text-6xl font-bold ">Aka</h2>
                 </div>
-                <div class="bg-yellow-400 border-2 border-yellow-400 rounded-xl px-4 text-white text-xl md:text-2xl hidden" id="divSenshuRed"  >
+                <div class="bg-yellow-400 border-2 border-yellow-400 rounded-xl px-4 text-black font-bold text-xl md:text-2xl hidden" id="divSenshuRed"  >
                     Senshu
                 </div>  
             </div>
             <div class="text-red-500 digital text-[160px] md:text-[250px] leading-none" id="redScore">02</div>
-            <div class="w-full max-w-xs">
-                <div class="flex justify-between text-white text-sm md:text-3xl mb-2">
+            <div class="w-full max-w-xs mt-10">
+                <div class="flex justify-between text-white text-sm md:text-4xl mb-2">
                     <span>1C</span>
                     <span>2C</span>
                     <span>3C</span>
@@ -54,11 +54,11 @@
         <div class="flex-1 flex flex-col items-center justify-between">
 
             <div class="bg-black border-2 border-white rounded-xl p-4 mb-4">
-                <div class="text-white text-xl md:text-4xl mb-2">Tatami</div>
-                <div class="text-yellow-300 text-4xl md:text-7xl text-center">1</div>
+                <div class="text-white text-xl md:text-3xl mb-2">Tatami</div>
+                <div class="text-yellow-300 text-4xl md:text-7xl text-center digital">1</div>
             </div>
-            <div class="bg-black border-2 border-white rounded-xl p-2 mb-4">
-                <div class="text-yellow-300 digital text-[150px] md:text-[130px]" id="timer">1:19</div>
+            <div class="bg-black border-2 border-white rounded-xl p-2 mb-3">
+                <div class="text-yellow-300 digital text-[150px] md:text-[120px]" id="timer">1:19</div>
             </div>
             <div class="text-white text-2xl md:text-4xl font-bold">Penalty</div>
         </div>
@@ -69,13 +69,13 @@
                 <div>
                     <h2 class="text-white text-4xl md:text-6xl font-bold ">Ao</h2>
                 </div>
-                <div class="bg-black border-2 border-white rounded-xl px-4 text-white text-xl md:text-2xl hidden" id="divSenshuBlue" >
+                <div class="bg-yellow-400 border-2 border-yellow-400 rounded-xl px-4 text-black font-bold text-xl md:text-2xl hidden"id="divSenshuBlue" >
                     Senshu
                 </div>
             </div>
             <div class="text-blue-500 digital text-[160px] md:text-[250px] leading-none" id="blueScore">02</div>
-            <div class="w-full max-w-xs">
-                <div class="flex justify-between text-white text-sm md:text-3xl mb-2">
+            <div class="w-full max-w-xs mt-10">
+                <div class="flex justify-between text-white text-sm md:text-4xl mb-2">
                     <span>1C</span>
                     <span>2C</span>
                     <span>3C</span>
